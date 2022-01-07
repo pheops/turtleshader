@@ -1,4 +1,4 @@
-import * as THREE from "/three.module.js";
+import * as THREE from "/turtleshader/three.module.js";
 import { Blit } from "../programs/blit.js";
 
 
