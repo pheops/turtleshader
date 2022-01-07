@@ -158,65 +158,65 @@ function animate(now) {
 
 
 function initGUI() {
-    var FizzyText = function() {
-        // this.extintionColor1 = [255 - Math.floor(0.25 * 255), 255 - Math.floor(0.7 * 255),  255 - Math.floor(0.9 * 255)];
-        this.extintionColor1 = [192, 123, 25];
-        this.extintionColor2 = [255 - Math.floor(0.9 * 255), 255 - Math.floor(0.35 * 255),  255 - Math.floor(0.25 * 255)];
-        this.extintionFactor = 5;
-        this.reflectionFactor = 1;
-        this.exposure = 0;
-        this.extintionCol1Random = false;
-        this.extintionCol2Random = false;
-        this.waveRaymarch = false;
-        this.targRadMult = 1.0;
-        this.copy = () => {
-            ssrtGlassProgram.material.uniforms.uExtintionColor2.value.x = (1 - this.extintionColor1[0] / 255);
-            ssrtGlassProgram.material.uniforms.uExtintionColor2.value.y = (1 - this.extintionColor1[1] / 255);
-            ssrtGlassProgram.material.uniforms.uExtintionColor2.value.z = (1 - this.extintionColor1[2] / 255);
-        };
-        this.uncopy = () => {
-            ssrtGlassProgram.material.uniforms.uExtintionColor2.value.x = (1 - this.extintionColor2[0] / 255);
-            ssrtGlassProgram.material.uniforms.uExtintionColor2.value.y = (1 - this.extintionColor2[1] / 255);
-            ssrtGlassProgram.material.uniforms.uExtintionColor2.value.z = (1 - this.extintionColor2[2] / 255);
-        };
-    };
+//     var FizzyText = function() {
+//         // this.extintionColor1 = [255 - Math.floor(0.25 * 255), 255 - Math.floor(0.7 * 255),  255 - Math.floor(0.9 * 255)];
+//         this.extintionColor1 = [192, 123, 25];
+//         this.extintionColor2 = [255 - Math.floor(0.9 * 255), 255 - Math.floor(0.35 * 255),  255 - Math.floor(0.25 * 255)];
+//         this.extintionFactor = 5;
+//         this.reflectionFactor = 1;
+//         this.exposure = 0;
+//         this.extintionCol1Random = false;
+//         this.extintionCol2Random = false;
+//         this.waveRaymarch = false;
+//         this.targRadMult = 1.0;
+//         this.copy = () => {
+//             ssrtGlassProgram.material.uniforms.uExtintionColor2.value.x = (1 - this.extintionColor1[0] / 255);
+//             ssrtGlassProgram.material.uniforms.uExtintionColor2.value.y = (1 - this.extintionColor1[1] / 255);
+//             ssrtGlassProgram.material.uniforms.uExtintionColor2.value.z = (1 - this.extintionColor1[2] / 255);
+//         };
+//         this.uncopy = () => {
+//             ssrtGlassProgram.material.uniforms.uExtintionColor2.value.x = (1 - this.extintionColor2[0] / 255);
+//             ssrtGlassProgram.material.uniforms.uExtintionColor2.value.y = (1 - this.extintionColor2[1] / 255);
+//             ssrtGlassProgram.material.uniforms.uExtintionColor2.value.z = (1 - this.extintionColor2[2] / 255);
+//         };
+//     };
     
-    var text = new FizzyText();
+//     var text = new FizzyText();
 
-    var gui = new dat.GUI();
-    gui.add(text, 'extintionFactor', 0, 10).onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtintionFactor.value = value;
-    });
-    gui.add(text, 'reflectionFactor', 0, 2).onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uReflectionFactor.value = value;
-    });
-    gui.add(text, 'exposure', -1, 2).onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExposure.value = value;
-    });
-    gui.addColor(text, 'extintionColor1').onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtintionColor1.value.x = (1 - value[0] / 255);
-        ssrtGlassProgram.material.uniforms.uExtintionColor1.value.y = (1 - value[1] / 255);
-        ssrtGlassProgram.material.uniforms.uExtintionColor1.value.z = (1 - value[2] / 255);
-    });
-    gui.addColor(text, 'extintionColor2').onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtintionColor2.value.x = (1 - value[0] / 255);
-        ssrtGlassProgram.material.uniforms.uExtintionColor2.value.y = (1 - value[1] / 255);
-        ssrtGlassProgram.material.uniforms.uExtintionColor2.value.z = (1 - value[2] / 255);
-    });
-    gui.add(text, 'copy');
-    gui.add(text, 'uncopy');
-    var fx = gui.addFolder("FX");
-    fx.add(text, 'extintionCol1Random').onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.x = value ? 1 : 0;
-    });
-    fx.add(text, 'extintionCol2Random').onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.y = value ? 1 : 0;
-    });
-    fx.add(text, 'waveRaymarch').onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.z = value ? 1 : 0;
-    });
-    fx.add(text, 'targRadMult', 0, 2).onChange((value) => {
-        ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.w = value;
-    });
-    fx.open();
+//     var gui = new dat.GUI();
+//     gui.add(text, 'extintionFactor', 0, 10).onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtintionFactor.value = value;
+//     });
+//     gui.add(text, 'reflectionFactor', 0, 2).onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uReflectionFactor.value = value;
+//     });
+//     gui.add(text, 'exposure', -1, 2).onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExposure.value = value;
+//     });
+//     gui.addColor(text, 'extintionColor1').onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtintionColor1.value.x = (1 - value[0] / 255);
+//         ssrtGlassProgram.material.uniforms.uExtintionColor1.value.y = (1 - value[1] / 255);
+//         ssrtGlassProgram.material.uniforms.uExtintionColor1.value.z = (1 - value[2] / 255);
+//     });
+//     gui.addColor(text, 'extintionColor2').onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtintionColor2.value.x = (1 - value[0] / 255);
+//         ssrtGlassProgram.material.uniforms.uExtintionColor2.value.y = (1 - value[1] / 255);
+//         ssrtGlassProgram.material.uniforms.uExtintionColor2.value.z = (1 - value[2] / 255);
+//     });
+//     gui.add(text, 'copy');
+//     gui.add(text, 'uncopy');
+//     var fx = gui.addFolder("FX");
+//     fx.add(text, 'extintionCol1Random').onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.x = value ? 1 : 0;
+//     });
+//     fx.add(text, 'extintionCol2Random').onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.y = value ? 1 : 0;
+//     });
+//     fx.add(text, 'waveRaymarch').onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.z = value ? 1 : 0;
+//     });
+//     fx.add(text, 'targRadMult', 0, 2).onChange((value) => {
+//         ssrtGlassProgram.material.uniforms.uExtinctionFX1.value.w = value;
+//     });
+//     fx.open();
 }
