@@ -1,4 +1,4 @@
-import * as THREE from "/node_modules/three/build/three.module.js";
+import * as THREE from "turtleshader/node_modules/three/build/three.module.js";
 import { OrbitControls } from "./node_modules/three/examples/jsm/controls/OrbitControls.js"; //'three/examples/jsm/controls/OrbitControls.js';
 import { DoubleDepthBuffer } from "./programs/doubleDepthBuffer.js";
 import { Blit } from "./programs/blit.js";
